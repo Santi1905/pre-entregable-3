@@ -1,0 +1,59 @@
+// Variables de estilo
+$background-color: #f9f9f9;
+$section-padding: 20px;
+$max-width: 800px;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$gap: 20px;
+
+// Estilo para el main utilizando Flexbox
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap;
+    padding: $section-padding;
+
+    // Estilo para cada sección
+    section {
+        width: 100%;
+        max-width: $max-width;
+        background-color: $background-color;
+        padding: $section-padding;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        img {
+            width: 100%; // Hacemos que la imagen sea responsiva
+            max-width: 400px; // Limite máximo de ancho de la imagen
+            height: auto; // Mantener la proporción de la imagen
+            display: block; // Quita cualquier espacio bajo la imagen
+            margin: 0 auto $gap; // Centra la imagen y agrega espacio inferior
+        }
+
+        h3 {
+            margin-bottom: $gap / 2;
+        }
+
+        p {
+            margin-bottom: $gap / 2;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Media queries para layout en grid cuando la pantalla es más ancha
+@media (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: $gap;
+    }
+}
